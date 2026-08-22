@@ -1,0 +1,41 @@
+model:
+  input_dim: 20
+  hidden_dim: 256
+  layers: 4
+  heads: 8
+  feedforward_dim: 1024
+  lora_rank: 8
+  lora_alpha: 1.0
+  dropout: 0.1
+  phenotype_count: 6
+  phenotype_embedding_dim: 32
+  pathway_margin: 0.5
+training:
+  iterations: 50000
+  meta_batch_size: 16
+  support_size: 10
+  query_size: 10
+  inner_steps: 5
+  inner_learning_rate: 0.01
+  outer_learning_rate: 0.001
+  weight_decay: 0.0001
+  pathway_weight: 0.1
+  adapter_weight: 0.0001
+  early_stopping_patience: 5000
+  seed: 42
+  precision: float32
+  scheduler: constant
+evaluation:
+  folds: 5
+  sampling_trials: 20
+  bootstrap_iterations: 1000
+  confidence: 0.95
+  calibration_bins: 15
+provenance:
+  meta_batch_size: engineering_default
+  query_size: engineering_default
+  precision: engineering_default
+  scheduler: engineering_default
+  pathway_margin: engineering_default
+  phenotype_embedding_dim: engineering_default
+
